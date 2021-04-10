@@ -2,13 +2,12 @@ const proxyquire = require('proxyquire');
 const sinon = require('sinon');
 const assert = require('assert');
 it.optional = require('../extensions/it-optional');
-const ListNode = require('../extensions/list-node');
 
 describe('14-queue', () => {
   const sandbox = sinon.createSandbox();
-  const ListNodeSpy = sandbox.spy(ListNode);
+  const ListNodeStub = sandbox.stub();
   const Queue = proxyquire('../src/14-queue', {
-    '../extensions/list-node': ListNodeSpy,
+    '../extensions/list-node': ListNodeStub,
   });
 
   afterEach(() => {
@@ -28,6 +27,6 @@ describe('14-queue', () => {
     const queue = new Queue();
     assert.doesNotThrow(() => queue.enqueue(5));
     assert.strictEqual(queue.dequeue(), 5);
-    assert.strictEqual(ListNodeSpy.called, true);
+    assert.strictEqual(ListNodeStub.called, true);
   });
 });
