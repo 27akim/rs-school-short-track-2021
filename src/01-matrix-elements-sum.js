@@ -14,25 +14,20 @@
  *
  * The result should be 9
  */
- function getMatrixElementsSum(matrix) {
-  let m = [];
+function getMatrixElementsSum(matrix) {
+  const rows = matrix.length;
+  const cols = matrix[0].length;
   let sum = 0;
-  for(let i = 0; i < matrix.length - 1; i++)
-  {
-    for(let j = 0; j < matrix[i].length; j++)
-    {
-      if(matrix[i][j] === 0)
-      {
-        m.push(j);
-        continue;
-      }
-      if(m.includes(j))
-      {
-        continue;
+
+  for (let j = 0; j < cols; j++) {
+    for (let i = 0; i < rows; i++) {
+      if (matrix[i][j] === 0) {
+        break;
       }
       sum += matrix[i][j];
     }
   }
+
   return sum;
 }
 
