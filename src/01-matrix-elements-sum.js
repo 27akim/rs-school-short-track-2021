@@ -14,12 +14,12 @@
  *
  * The result should be 9
  */
-function getMatrixElementsSum(matrix) {
+ function getMatrixElementsSum(matrix) {
   let m = [];
   let sum = 0;
   for(let i = 0; i < matrix.length - 1; i++)
   {
-    for(let j = 0; j < i[j].length - 1; i++)
+    for(let j = 0; j < matrix[i].length; j++)
     {
       if(matrix[i][j] === 0)
       {
