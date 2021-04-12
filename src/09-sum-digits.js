@@ -14,9 +14,9 @@ function getSumOfDigits(n) {
   let str = n.toString().split('');
   let str2 = '';
   let sum;
-  while (true) {
+  let flag = true;
+  while (flag) {
     str2 += str[0];
-    console.log(str2);
     sum = parseInt(str[0], 10);
     for (let i = 1; i < str.length; i++) {
       str2 = `${str2} + ${str[i]}`;
@@ -24,7 +24,7 @@ function getSumOfDigits(n) {
     }
     str2 = `${str2} = ${sum}`;
     if (sum < 10) {
-      break;
+      flag = false;
     } else {
       str2 = `${str2}, `;
       str = sum.toString().split('');
